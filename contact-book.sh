@@ -4,7 +4,8 @@ echo "Choose an option"
 echo "1) Add an Contact"
 echo "2) View all contacts"
 echo "3) Search contact"
-echo "4) Exit"
+echo "4) Delete contact"
+echo "5) Exit"
 read choice
 
 case $choice in
@@ -26,9 +27,14 @@ case $choice in
 		grep -i "$name" contacts.txt
 		;;
 	4)
-		echo "Goodbye"
-		exit 0
+		echo "Enter name"
+		read name
+		sed -i '' "/$name/d" contacts.txt
 		;;
+	5)
+                echo "Goodbye"
+                exit 0
+                ;;
 	*)
 		echo "Invalid operator"
 		;;
